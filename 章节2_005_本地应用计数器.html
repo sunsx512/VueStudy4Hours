@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章节2_005_本地应用计数器</title>
+    
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+    <div class="input-num" id="app">
+        <button @click="sub">-</button>
+        <span>{{ num }}</span>
+        <button @click="add">+</button>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num:1
+            },  
+            methods: {
+                add:function(){
+                    if(this.num>=10)
+                        alert("已达到最大值！")
+                    else
+                        this.num++;
+                },
+                sub:function(){
+                    if(this.num<=0)
+                        alert("没有了，已达到最小值！")
+                    else
+                        this.num--;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

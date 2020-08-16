@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>003_data数据对象</title>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <h2>{{ school.name }} </h2>
+        <h2>{{ school.phone }} </h2>
+        <ul>
+            <li>{{ campus[0] }}</li>
+            <li>{{ campus[1] }}</li>
+            <li>{{ campus[2] }}</li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好，fresh bird ！",
+                school:{
+                    name: "oracle大学",
+                    phone: "110"
+                },
+                campus:["北京","上海","广州"]
+
+            }
+        })
+    </script>
+</body>
+</html>

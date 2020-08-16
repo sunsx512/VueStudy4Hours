@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章节2_003_v-html标签</title>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 v-html="message"></h2>
+        <h2 v-text="message"></h2>
+    </div>
+    <br>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "<a href='https://www.baidu.com'>little bird</a>"
+            }
+        })
+    </script>
+    <p>对应html dom Document 对象 innerHTML属性</p>
+</body>
+</html>

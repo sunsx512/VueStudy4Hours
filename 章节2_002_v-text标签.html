@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章节2_002_v-text标签</title>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">{{message}}
+        <h2 v-text="message">张三</h2><!--缺点：完全替换标签内容 -->
+        <h2>张三{{ message }}</h2><!-- 插值表达式 -->
+        <!--表达式字符串拼接 -->
+        <h2 v-text="message+'!'"></h2><!--注意，是单引号 -->
+        <h2>都是{{ message+'!'+"!" }}</h2>
+
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "little bird"
+            }
+        })
+    </script>
+    <p>对应html dom Document 对象 textContent属性</p>
+
+
+</body>
+</html>

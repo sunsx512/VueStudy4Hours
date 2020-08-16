@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章节2_004_v-on标签</title>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{food}}</h2>
+        <input type="button" value="单机事件" v-on:click="event" /> <!-- v-on:可以替换成@ -->
+        <br>
+        <input type="button" value="monseenter事件" v-on:mouseenter="event" />
+        <br>
+        <input type="button" value="双击事件" v-on:dblclick="event" />
+        <br>
+
+        <input type="button" value="单机事件" @click="event" /> <!-- @v-on可以替换成@ -->
+        <br>
+        <input type="button" value="monseenter事件" @mouseenter="event" />
+        <br>
+        <input type="button" value="双击事件" @dblclick="event" />
+        <br>
+
+        <h2 @click="changefood">{{food}}</h2>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                food: "西兰花炒蛋" 
+            },
+            methods: {
+                event:function(){
+                    alert("事件绑定")
+                },
+                changefood(){{
+                    console.log(this.food);
+                    this.food+="超级好吃！";
+                    //this 关键字取值，不需要操作dom
+                }}
+            }
+        })
+    </script>
+</body>
+</html>
