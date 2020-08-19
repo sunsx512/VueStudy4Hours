@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章节2_010_v-for指令</title>
+    <style>
+        .active{
+            border: red 1px solid;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+    
+
+    <div id="app">
+       <input type="button" @click="add" value="add">
+       <input type="button" @click="remove" value="remove">
+       <ul>
+           <li v-for="(item,index) in arr" :title="item">{{index+1}}你好！{{item}}</li>
+       </ul>
+       <h2>
+        <li v-for="(item,index) in objArr" :title="item">{{index}}-{{item.name}}</li>
+       </h2>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr: [1,2,3,4,5],
+                objArr: [
+                    {name:"张三"},{name:"李四"},{name:"王五"},{name:"赵六"}
+                ]
+            },
+            methods: {
+                add:function(){
+                    this.objArr.push({name:"AB"});
+                },
+                remove:function(){
+                    this.objArr.shift();
+                }
+            }
+        })
+    </script>
+    <!-- 笔记：
+        * v-for 根据数据生成列表结构
+        * 数组经常和v-for结合使用
+        * 语法（item，index） in 数据
+        * item和index可以结合其它指令一起使用
+        * 数组长度的更新会同步到页面上，是响应式的
+    -->
+
+</body>
+</html>
